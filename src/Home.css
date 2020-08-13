@@ -1,0 +1,24 @@
+.home {
+	max-width: 1500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.home_image {
+	width: 100%;
+	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+	/* this gradients makes the image fade into the bottom.
+                                            If you want to make it fade into the top,
+                                            just switch the last numbers of each color to this
+                                            rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) */
+	z-index: -1;
+	margin-bottom: -150px;
+}
+
+.home_row {
+	display: flex;
+	justify-content: space-evenly;
+	z-index: 1;
+	margin-left: 5px;
+	margin-right: 5px;
+}
