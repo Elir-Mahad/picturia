@@ -16,6 +16,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Header from "./Header.js";
 
+import CheckOut from "./CheckOut.js";
+
 import Home from "./Home.js";
 
 import "./App.css";
@@ -31,7 +33,7 @@ function App() {
 						{/* For this path, Route path="/checkout", 
 				when you enter this url (http://localhost:3000/checkout)
 				an h1 with the word checkout will appear on the page */}
-						<h1> Checkout </h1>
+						<CheckOut />
 					</Route>
 					<Route path="/login">
 						{/* For this path, Route path="/login", 

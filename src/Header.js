@@ -21,11 +21,12 @@ function Header() {
 	// const [{ basket }, dispatch] = useStateValue();
 
 	// useStateValue contains some stuff (this 'stuff' include the 'basket' and its contents)
-	// We can 'fetch' and/or 'append' the items of the basket with --> const [{ basket }, dispatch]
+	// We can 'fetch' and 'append' the items of the basket with --> const [{ basket }, dispatch]
 
 	// 'Dispatch' facilitates the process of adding and removing items from the basket
 	// The thing that's getting dispatched, is the action.type from the reducer.js
-	// 'Basket' simply grabs the items that are in the basket
+	// Whenever you want to manipulate a data layer, thats when you use dispatch, but if you only want to display the data layer, then you don't need dispatch
+	// 'Basket' simply grabs the items that are in the basket.
 
 	// For this example, all we need to do is 'fetch' the items in the basket
 	// Therefore --> const [{ basket }, dispatch] = useStateValue(); has been commented out (line 21)
