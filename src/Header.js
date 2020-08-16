@@ -15,7 +15,29 @@ import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search"; // this imports the search icon from material-ui as a component
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 
+import { useStateValue } from "./StateProvider.js";
+
 function Header() {
+	//? const [{ basket }, dispatch] = useStateValue();
+
+	// useStateValue contains some stuff (this 'stuff' include the 'basket' and its contents)
+	// We can 'fetch' and/or 'append' the items of the basket with --> const [{ basket }, dispatch]
+
+	// 'Dispatch' facilitates the process of adding and removing items from the basket
+	// The thing that's getting dispatched, is the action.type from the reducer.js
+	// 'Basket' simply grabs the items that are in the basket
+
+	// For this example, all we need to do is 'fetch' the items in the basket
+	// Therefore --> const [{ basket }, dispatch] = useStateValue(); has been commented out (blue line)
+	// and it has been replaced with --> const [{ basket }] = useStateValue();
+
+	const [{ basket }] = useStateValue();
+
+	// const [{ basket }] = useStateValue() will:
+	// A. fetch the contents of the array basket
+	// B. the array basket stored in the constant intitial state.
+	// C. the constant initial state is stored in the reducer.js page
+
 	return (
 		<nav className="header">
 			{/* STEP A */}
@@ -85,7 +107,14 @@ function Header() {
 
 						<ShoppingBasketIcon />
 
-						<span className="header_optionLineTwo header_basketCount"> 0 </span>
+						<span className="header_optionLineTwo header_basketCount">
+							{" "}
+							{basket.length}
+							{/* This counts the items in the basket. 
+							Then it displays the number items that are in the basket. 
+							So if the basket has a lenght of two, 
+							that means that it contains two items  */}
+						</span>
 					</div>
 				</Link>
 			</div>
