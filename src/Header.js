@@ -38,6 +38,31 @@ function Header() {
 	// B. the array basket stored in the constant intitial state.
 	// C. the constant initial state is stored in the reducer.js page
 
+	console.log(basket);
+
+	// In the console, this will outout an empty array.
+	// When you click on an item, the console will output -> [{…}] ; this means that the basket array contains one item
+	// When you click on another item, the console will output -> (2) [{…}, {…}] ; this means that the basket array contains two items
+
+	// IF you click on the array, then you will get the properties of the item-objects nested in the array (just like json):
+
+	//(2) [{…}, {…}]
+	// 0:
+	// id: "1234"
+	// image: "https://images-na.ssl-images-amazon.com/images/I/51T-sMqSMiL._SX329_BO1,204,203,200_.jpg"
+	// price: 11.96
+	// rating: 5
+	// title: "The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create"
+	// __proto__: Object
+	// 1:
+	// id: "1235"
+	// image: "https://images-na.ssl-images-amazon.com/images/I/81QpkIctqPL._AC_SX679_.jpg"
+	// price: 89.99
+	// rating: 4
+	// title: "Acer SB220Q bi 21.5 Inches Full HD (1920 x 1080) IPS Ultra-Thin Zero Frame Monitor (HDMI VGA port),Black"
+	// __proto__: Object
+	// length: 2
+
 	return (
 		<nav className="header">
 			{/* STEP A */}
@@ -111,8 +136,8 @@ function Header() {
 							{basket?.length}
 
 							{/* This counts the items in the basket. 
-							Then it displays the number items that are in the basket. 
-							So if the baske has a lenght of two, that means that it contains two items.
+							Then it displays the number of items that are in the basket. 
+							So if the basket has a lenght of two, that means that it contains two items.
 							
 							Whenever the basket is being accessed, there will be a some time lag.
 							Like 1 or 2 seconds to initialize.

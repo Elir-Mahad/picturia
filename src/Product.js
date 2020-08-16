@@ -25,7 +25,7 @@ function Product({ id, title, image, price, rating }) {
 	// On click, the add to basket function is going to run.
 	// It is going to dispatch an action (ex: ADD_TO_BASKET)
 	// then we listen to the action in the reducer
-	// When the action came in, the basket gets updated
+	// When the action comes in, the basket gets updated
 
 	return (
 		<div className="product">

@@ -21,31 +21,31 @@ export const initialState = {
 const reducer = (state, action) => {
 	// The constant reducer stores a function that has the two parameter state and action.
 	// We refer to the data layer as state; so anything inside the data layer is known as state.
-	// We manipulate the data layer with actions; such as: add basket, add item to basket, remove item from basket,etc
+	// We manipulate the data layer with actions; such as: add item to basket, remove item from basket,etc
 
 	console.log(action);
 	// console log the items that are clicked on
 	// this is to check that the click function is working
+	// When the button is clicked, it should output the items object and properties in the browsers console
 
 	switch (action.type) {
 		// switch stores an action, and the 'type' of that action
 		// switch also checks all the cases (strings that represent a specific action )
 
 		case "ADD_TO_BASKET":
-			// this first case "ADD_TO_BASKET" represent the action of adding an item to the basket
-			// Logic for adding item to basket
+			// This first case "ADD_TO_BASKET" represent the action of adding an item to the basket
+			// Here we Logic for adding item to basket
 
 			return {
-				// a new data layer that is compased of
+				// After the item, that has been clicked on, is added to the basket, return:
 
-				...state, // Return whatever the state current way
-				// If you had other properties, then this is where you insert all your properties
+				...state, // Return whatever the state currently is [line 4]
+				// If you had other properties, then this is where you insert all your properties this is similar to how you declare state in the constructor and then set.state in componentDidMount
 
-				// Similar to how you declare state in the constructor
-				// and then set.state in componentDidMount
 				basket: [...state.basket, action.item]
-				// Here you are creating a new basket that's going to contain:
+				// Return a new basket that's going to contain:
 				// The current basket (whatever items were left over) + action.item (the item that was just picked)
+				// So if you picked one item, then the new basket will contain: the 4 leftover items + the item that was previously picked. Which will be a total of 5 items.
 
 				// (action.item gets the data points that we asked from in the addtobasket function )
 			};
