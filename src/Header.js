@@ -18,7 +18,7 @@ import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { useStateValue } from "./StateProvider.js";
 
 function Header() {
-	//? const [{ basket }, dispatch] = useStateValue();
+	// const [{ basket }, dispatch] = useStateValue();
 
 	// useStateValue contains some stuff (this 'stuff' include the 'basket' and its contents)
 	// We can 'fetch' and/or 'append' the items of the basket with --> const [{ basket }, dispatch]
@@ -28,7 +28,7 @@ function Header() {
 	// 'Basket' simply grabs the items that are in the basket
 
 	// For this example, all we need to do is 'fetch' the items in the basket
-	// Therefore --> const [{ basket }, dispatch] = useStateValue(); has been commented out (blue line)
+	// Therefore --> const [{ basket }, dispatch] = useStateValue(); has been commented out (line 21)
 	// and it has been replaced with --> const [{ basket }] = useStateValue();
 
 	const [{ basket }] = useStateValue();
@@ -108,12 +108,17 @@ function Header() {
 						<ShoppingBasketIcon />
 
 						<span className="header_optionLineTwo header_basketCount">
-							{" "}
-							{basket.length}
+							{basket?.length}
+
 							{/* This counts the items in the basket. 
 							Then it displays the number items that are in the basket. 
-							So if the basket has a lenght of two, 
-							that means that it contains two items  */}
+							So if the baske has a lenght of two, that means that it contains two items.
+							
+							Whenever the basket is being accessed, there will be a some time lag.
+							Like 1 or 2 seconds to initialize.
+							This time lag, will be registerd as an error and the basket items will not be returned.
+							To avoid this, we must add the conditional (ternary) operator optional --> '?' after the word basket.
+							This stops the error from popping up.*/}
 						</span>
 					</div>
 				</Link>

@@ -1,8 +1,31 @@
 import React from "react";
 import "./Product.css";
 
+import { useStateValue } from "./StateProvider.js";
+
 function Product({ id, title, image, price, rating }) {
 	// spit apart the object, and grab the id, title, image, price,rating
+
+	const [{}, dispatch] = useStateValue();
+
+	const addToBasket = () => {
+		// add item to basket
+		dispatch({
+			type: "ADD_TO_BASKET",
+			item: {
+				id: id, // fetch the id
+				title: title, // fetch the title
+				image: image, // fetch the image
+				price: price, // fetch the price
+				rating: rating // fetch the rating
+			}
+		});
+	};
+
+	// On click the add to basket function is going to run
+	// it is going to dispatch an action
+	// then we listen to the action in the reducer
+
 	return (
 		<div className="product">
 			<div className="product_info">
@@ -30,7 +53,7 @@ function Product({ id, title, image, price, rating }) {
 			</div>
 
 			<img src={image} alt="" />
-			<button>Add to basket</button>
+			<button onClick={addToBasket}>Add to basket</button>
 		</div>
 	);
 }
