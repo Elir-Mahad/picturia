@@ -75,27 +75,48 @@ const reducer = (state, action) => {
 			};
 		// break; // this break signifies that the case logic is finished
 
-		case "REMOVE_FROM_BASKET":
-			// this second case "REMOVE_FROM_BASKET" represent the action of removing an item to the basket
-			// Logic for removing item from basket
+		case "REMOVE_FROM_BASKET": // this second case "REMOVE_FROM_BASKET" represent the action of removing an item to the basket
+			// Below is the Logic for removing item from basket
 
 			let newBasket = [...state.basket];
+
+			// let new basket equal whatever the current basket is.
+			// Here we are simply copying the basket, into our own parameter which is the new basket.
 
 			const index = state.basket.findIndex(
 				(basketItem) => basketItem.id === action.id
 			);
 
+			// Whenever an items whose remove button was just pressed
+			// the removeFromBasket function (in CheckoutProduct.js)
+			// dispatches the id of that item.
+
+			// This dispatching is formally identified as an 'action'.
+			// And the thing being dispatched is the item's ID.
+			// To highlight that this dispatching is an action,
+			// we are going to call the id of the items that's been dispatched --> action.id.
+
+			// So, when the action.id is dispatched:
+			// [a] get the dispatched id (action.id) of the item whose remove button was just pressed.
+			// [b] Check to see if the id of this item, is equivalent to the id of any item that are currently in the basket
+
 			if (index >= 0) {
-				// item exists in basket, remove it
+				// if the index is greater than or equal to 0 [this means that there are items in the basket]
 				newBasket.splice(index, 1);
+				// then get the newbasket (which is the constant that stores our actual basket),
+				// and find the index (within the basket) where you found the action.id, and then splice (cut out) the item associated with that id
 			} else {
+				// otherwise produce the console warning
 				console.warn(
 					`Cant remove product (id: ${action.id}) as its not in the basket`
 				);
 			}
 			return {
 				...state,
+				// then return the state
 				basket: newBasket
+				// set the basket to the new basket
+				// Hence, the basket now will return the updated items after the item removal.
 			};
 		// break; // this break signifies that the case logic is finished
 

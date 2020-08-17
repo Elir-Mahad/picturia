@@ -12,13 +12,13 @@ function Product({ id, title, image, price, rating }) {
 		// console.log();
 		// add item to basket
 		dispatch({
-			type: "ADD_TO_BASKET",
+			type: "ADD_TO_BASKET", // this is the action.type from the reducer.js
 			item: {
-				id: id, // fetch the id
-				title: title, // fetch the title
-				image: image, // fetch the image
-				price: price, // fetch the price
-				rating: rating // fetch the rating
+				id: id, // fetch the id of the item that's being added
+				title: title, // fetch the title of the item that's being added
+				image: image, // fetch the image of the item that's being added
+				price: price, // fetch the price of the item that's being added
+				rating: rating // fetch the rating of the item that's being added
 			}
 		});
 	};
