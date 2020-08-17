@@ -20,6 +20,8 @@ import CheckOut from "./CheckOut.js";
 
 import Home from "./Home.js";
 
+import Login from "./Login.js";
+
 import "./App.css";
 
 function App() {
@@ -31,15 +33,15 @@ function App() {
 						<Header />{" "}
 						{/* This is the Header component from Header.js It will appear on the check out page */}
 						{/* For this path, Route path="/checkout", 
-				when you enter this url (http://localhost:3000/checkout)
-				an h1 with the word checkout will appear on the page */}
+							when you enter this url (http://localhost:3000/checkout)
+							an h1 with the word checkout will appear on the page */}
 						<CheckOut />
 					</Route>
 					<Route path="/login">
 						{/* For this path, Route path="/login", 
-            when you enter this url (http://localhost:3000/login)
-            an h1 with the word login will appear on the page */}
-						<h1> login page </h1>
+							when you enter this url (http://localhost:3000/login)
+							an h1 with the word login will appear on the page */}
+						<Login />
 					</Route>
 					<Route path="/">
 						<Header />{" "}
@@ -47,8 +49,8 @@ function App() {
 						<Home />{" "}
 						{/* This is the Home component from Home.js It will appear on the homepage */}
 						{/* For this first path, Route path="/", 
-            when you enter this url (http://localhost:3000/)
-            an h1 with the word homepage will appear on the page */}
+							when you enter this url (http://localhost:3000/)
+							an h1 with the word homepage will appear on the page */}
 					</Route>
 				</Switch>
 			</div>
