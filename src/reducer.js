@@ -5,24 +5,24 @@ export const initialState = {
 		// the user can add items into the basket,
 		// but the item object below is manually added into the basket
 		// so it will always be there whenever the user goes to the checkout page
-		{
-			id: "1235",
-			title:
-				"Acer SB220Q bi 21.5 Inches Full HD (1920 x 1080) IPS Ultra-Thin Zero Frame Monitor (HDMI VGA port),Black",
-			price: 89.99,
-			rating: 4,
-			image:
-				"https://images-na.ssl-images-amazon.com/images/I/81QpkIctqPL._AC_SX679_.jpg"
-		},
-		{
-			id: "1235",
-			title:
-				"Acer SB220Q bi 21.5 Inches Full HD (1920 x 1080) IPS Ultra-Thin Zero Frame Monitor (HDMI VGA port),Black",
-			price: 89.99,
-			rating: 4,
-			image:
-				"https://images-na.ssl-images-amazon.com/images/I/81QpkIctqPL._AC_SX679_.jpg"
-		}
+		// {
+		// 	id: "1235",
+		// 	title:
+		// 		"Acer SB220Q bi 21.5 Inches Full HD (1920 x 1080) IPS Ultra-Thin Zero Frame Monitor (HDMI VGA port),Black",
+		// 	price: 89.99,
+		// 	rating: 4,
+		// 	image:
+		// 		"https://images-na.ssl-images-amazon.com/images/I/81QpkIctqPL._AC_SX679_.jpg"
+		// },
+		// {
+		// 	id: "1235",
+		// 	title:
+		// 		"Acer SB220Q bi 21.5 Inches Full HD (1920 x 1080) IPS Ultra-Thin Zero Frame Monitor (HDMI VGA port),Black",
+		// 	price: 89.99,
+		// 	rating: 4,
+		// 	image:
+		// 		"https://images-na.ssl-images-amazon.com/images/I/81QpkIctqPL._AC_SX679_.jpg"
+		// }
 	],
 	user: null
 	// the data layer in the beginning is a basket with an empty array --> basket :[] ;
@@ -84,7 +84,19 @@ const reducer = (state, action) => {
 			const index = state.basket.findIndex(
 				(basketItem) => basketItem.id === action.id
 			);
-			return { ...state };
+
+			if (index >= 0) {
+				// item exists in basket, remove it
+				newBasket.splice(index, 1);
+			} else {
+				console.warn(
+					`Cant remove product (id: ${action.id}) as its not in the basket`
+				);
+			}
+			return {
+				...state,
+				basket: newBasket
+			};
 		// break; // this break signifies that the case logic is finished
 
 		default:

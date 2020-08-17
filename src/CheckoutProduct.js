@@ -9,13 +9,7 @@ function CheckoutProduct({ id, title, image, price, rating }) {
 		// remove item from basket
 		dispatch({
 			type: "REMOVE_FROM_BASKET",
-			item: {
-				id: id, // fetch the id
-				title: title, // fetch the title
-				image: image, // fetch the image
-				price: price, // fetch the price
-				rating: rating // fetch the rating
-			}
+			id: id // fetch the id
 		});
 	};
 
