@@ -1,32 +1,12 @@
 // This is where the data layer logic goes
 
 export const initialState = {
-	basket: [
-		// the user can add items into the basket,
-		// but the item object below is manually added into the basket
-		// so it will always be there whenever the user goes to the checkout page
-		// {
-		// 	id: "1235",
-		// 	title:
-		// 		"Acer SB220Q bi 21.5 Inches Full HD (1920 x 1080) IPS Ultra-Thin Zero Frame Monitor (HDMI VGA port),Black",
-		// 	price: 89.99,
-		// 	rating: 4,
-		// 	image:
-		// 		"https://images-na.ssl-images-amazon.com/images/I/81QpkIctqPL._AC_SX679_.jpg"
-		// },
-		// {
-		// 	id: "1235",
-		// 	title:
-		// 		"Acer SB220Q bi 21.5 Inches Full HD (1920 x 1080) IPS Ultra-Thin Zero Frame Monitor (HDMI VGA port),Black",
-		// 	price: 89.99,
-		// 	rating: 4,
-		// 	image:
-		// 		"https://images-na.ssl-images-amazon.com/images/I/81QpkIctqPL._AC_SX679_.jpg"
-		// }
-	],
+	basket: [],
 	user: null
 	// the data layer in the beginning is a basket with an empty array --> basket :[] ;
+
 	// items will get added to it by the user
+
 	// This is similar to the empty array, that is used in the constructor,
 	// as a placeholder for incoming api data is being expected
 
@@ -43,7 +23,22 @@ export const initialState = {
 };
 
 export const getBasketTotal = (basket) =>
+	// create a constant called getBasketTotal;
+	// this constant has a parameter which is the actual shopping basket
+
 	basket?.reduce((amount, item) => item.price + amount, 0);
+
+// take the basket and return a reduce fuction
+// reduce is a function that has two paramaters
+// The first parameter is an amount (the price of the item)
+// The second parameter is item (the item-object that you reiterate through the basket)
+
+// add the price of the item to the original amount
+// the orignal amount starts at 0
+// increment all the prices of items in the basket
+
+// After all that is done the constant will get automaticaly exported
+// and it will be imported it into the subTotal.js ( --> CurrencyFormat -->value )
 
 const reducer = (state, action) => {
 	// The constant reducer stores a function that has the two parameter state and action.
