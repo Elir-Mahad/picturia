@@ -1,6 +1,7 @@
 import React from "react";
 import "./Checkout.css";
 import { useStateValue } from "./StateProvider.js";
+import CheckoutProduct from "./CheckoutProduct.js";
 
 function CheckOut() {
 	const [{ basket }] = useStateValue();
@@ -24,7 +25,17 @@ function CheckOut() {
 				// other wise (i.e, if the basket is not empty) return the below div
 
 				<div>
-					<h2>Your shopping basket</h2>
+					<h2 className="checkout_title">Your shopping basket</h2>
+					{/* list out al of the checkout products */}
+					{basket.map((item) => (
+						<CheckoutProduct
+							item={item.id}
+							title={item.title}
+							image={item.image}
+							price={item.price}
+							rating={item.rating}
+						/>
+					))}
 				</div>
 			)}
 		</div>
