@@ -13,6 +13,15 @@ export const initialState = {
 			rating: 4,
 			image:
 				"https://images-na.ssl-images-amazon.com/images/I/81QpkIctqPL._AC_SX679_.jpg"
+		},
+		{
+			id: "1235",
+			title:
+				"Acer SB220Q bi 21.5 Inches Full HD (1920 x 1080) IPS Ultra-Thin Zero Frame Monitor (HDMI VGA port),Black",
+			price: 89.99,
+			rating: 4,
+			image:
+				"https://images-na.ssl-images-amazon.com/images/I/81QpkIctqPL._AC_SX679_.jpg"
 		}
 	],
 	user: null
@@ -69,7 +78,13 @@ const reducer = (state, action) => {
 		case "REMOVE_FROM_BASKET":
 			// this second case "REMOVE_FROM_BASKET" represent the action of removing an item to the basket
 			// Logic for removing item from basket
-			return { state };
+
+			let newBasket = [...state.basket];
+
+			const index = state.basket.findIndex(
+				(basketItem) => basketItem.id === action.id
+			);
+			return { ...state };
 		// break; // this break signifies that the case logic is finished
 
 		default:
