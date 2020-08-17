@@ -6,7 +6,8 @@ import { useStateValue } from "./StateProvider.js";
 function Product({ id, title, image, price, rating }) {
 	// spit apart the object, and grab the id, title, image, price,rating
 
-	const [{}, dispatch] = useStateValue();
+	const [{}, dispatch] = useStateValue(); // THIS IS THE DATA LAYER FROM STATE PROVIDER
+	// THIS IS USUALLY SUMMONED WHEN WILL NEED TO THE GRAB THE BASKET ITEMS OR BASKET SOMEWHERE IN THE COMPONENT
 
 	const addToBasket = () => {
 		// console.log();

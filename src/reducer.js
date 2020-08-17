@@ -42,6 +42,9 @@ export const initialState = {
 	// then, on the page, it should display the number 3 next to the basket.
 };
 
+export const getBasketTotal = (basket) =>
+	basket?.reduce((amount, item) => item.price + amount, 0);
+
 const reducer = (state, action) => {
 	// The constant reducer stores a function that has the two parameter state and action.
 	// We refer to the data layer as state; so anything inside the data layer is known as state.
@@ -57,7 +60,7 @@ const reducer = (state, action) => {
 		// switch also checks all the cases (strings that represent a specific action )
 
 		case "ADD_TO_BASKET":
-			// This first case "ADD_TO_BASKET" represent the action of adding an item to the basket
+			// This  first case "ADD_TO_BASKET" represent the action of adding an item to the basket
 			// Here we Logic for adding item to basket
 
 			return {
@@ -81,7 +84,7 @@ const reducer = (state, action) => {
 			let newBasket = [...state.basket];
 
 			// let new basket equal whatever the current basket is.
-			// Here we are simply copying the basket, into our own parameter which is the new basket.
+			// Here we are simply cloning the basket, into our own variable which is: newBasket.
 
 			const index = state.basket.findIndex(
 				(basketItem) => basketItem.id === action.id

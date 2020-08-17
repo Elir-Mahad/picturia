@@ -5,7 +5,8 @@ import CheckoutProduct from "./CheckoutProduct.js";
 import Subtotal from "./Subtotal.js";
 
 function CheckOut() {
-	const [{ basket }] = useStateValue();
+	const [{ basket }] = useStateValue(); // THIS IS THE DATA LAYER FROM STATE PROVIDER
+	// THIS IS USUALLY SUMMONED WHEN WE WILL NEED TO THE GRAB THE BASKET ITEMS OR BASKET SOMEWHERE IN THE COMPONENT
 
 	return (
 		<div className="checkout">

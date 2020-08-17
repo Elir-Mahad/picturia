@@ -3,7 +3,8 @@ import "./checkoutProduct.css";
 import { useStateValue } from "./StateProvider.js";
 
 function CheckoutProduct({ id, title, image, price, rating }) {
-	const [{}, dispatch] = useStateValue();
+	const [{}, dispatch] = useStateValue(); // THIS IS THE DATA LAYER FROM STATE PROVIDER
+	// THIS IS USUALLY SUMMONED WHEN WILL NEED TO THE GRAB THE BASKET ITEMS OR BASKET SOMEWHERE IN THE COMPONENT
 
 	const removeFromBasket = () => {
 		// remove item from basket
