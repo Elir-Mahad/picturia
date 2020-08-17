@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { Link, useHistory } from "react-router-dom";
+import { auth } from "firebase";
 
 function Login() {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+
+	const login = (event) => {
+		event.preventDefault(); // this stops page referesh
+		// do the login logic here
+
+		auth.signInWithEmailAndPassword(email, password);
+	};
+
+	const register = (event) => {
+		event.preventDefault(); // this stops page referesh
+		// do the register logic here
+	};
+
 	return (
 		<div className="login">
 			<Link to="/">
@@ -20,9 +36,9 @@ function Login() {
 				<h1> Sign in </h1>
 				<form>
 					<h5> Email </h5>
-					<input type="email" />
+					<input value={email} type="email" />
 					<h5>Password</h5>
-					<input type="password" />
+					<input value={password} type="password" />
 					<button onClick={login} type="submit" className="login_signInButton">
 						Sign in
 					</button>
@@ -32,7 +48,7 @@ function Login() {
 					Amazon.com account, be logged in to your account on the Product, and
 					have a valid payment method associated with your account.
 				</p>
-				<button className="login_registerButton">
+				<button onClick={register} className="login_registerButton">
 					Create your Amazon button
 				</button>
 			</div>
