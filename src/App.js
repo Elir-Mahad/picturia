@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // React apps are single page apps (SPA)
@@ -15,16 +15,44 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // For example: below we added the Header component to the checkout page, and to the homepage, but its not on the login page.
 
 import Header from "./Header.js";
-
 import CheckOut from "./CheckOut.js";
-
 import Home from "./Home.js";
-
 import Login from "./Login.js";
-
 import "./App.css";
 
+import { useStateValue } from "./StateProvider.js";
+import { auth } from "firebase";
+
 function App() {
+	const [{}, dispatch] = useStateValue(); // THIS IS THE DATA LAYER FROM STATE PROVIDER
+	// THIS IS USUALLY SUMMONED WHEN WILL NEED TO THE GRAB THE BASKET ITEMS OR BASKET SOMEWHERE IN THE COMPONENT
+
+	// We need a piece of code which runs based on a given condition
+	// this is what we call a useEffect Hook ------> very powerful and important
+
+	useEffect(() => {
+		const unsubscribe = auth.onAuthStateChanged((authUser) => {
+			if (authUser) {
+				//  the user is logged in ...
+				dispatch({
+					type: "SET_USER",
+					user: authUser
+				});
+			} else {
+				// the user is logged out ..
+				dispatch({
+					type: "SET_USER",
+					user: null
+				});
+			}
+		});
+
+		return () => {
+			// any clean up operations go in here...
+			unsubscribe();
+		};
+	}, []);
+
 	return (
 		<Router>
 			<div className="App">

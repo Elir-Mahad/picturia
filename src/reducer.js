@@ -54,6 +54,12 @@ const reducer = (state, action) => {
 		// switch stores an action, and the 'type' of that action
 		// switch also checks all the cases (strings that represent a specific action )
 
+		case "SET_USER":
+			return {
+				...state,
+				user: action.user
+			};
+
 		case "ADD_TO_BASKET":
 			// This  first case "ADD_TO_BASKET" represent the action of adding an item to the basket
 			// Here we Logic for adding item to basket
