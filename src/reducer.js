@@ -1,8 +1,23 @@
 // This is where the data layer logic goes
 
 export const initialState = {
-	basket: []
-	// the data layer in the beginning is a basket with an empty array; items will get added to it by the user
+	basket: [
+		// the user can add items into the basket,
+		// but the item object below is manually added into the basket
+		// so it will always be there whenever the user goes to the checkout page
+		{
+			id: "1235",
+			title:
+				"Acer SB220Q bi 21.5 Inches Full HD (1920 x 1080) IPS Ultra-Thin Zero Frame Monitor (HDMI VGA port),Black",
+			price: 89.99,
+			rating: 4,
+			image:
+				"https://images-na.ssl-images-amazon.com/images/I/81QpkIctqPL._AC_SX679_.jpg"
+		}
+	],
+	user: null
+	// the data layer in the beginning is a basket with an empty array --> basket :[] ;
+	// items will get added to it by the user
 	// This is similar to the empty array, that is used in the constructor,
 	// as a placeholder for incoming api data is being expected
 

@@ -26,7 +26,11 @@ function CheckOut() {
 
 				<div>
 					<h2 className="checkout_title">Your shopping basket</h2>
-					{/* list out al of the checkout products */}
+
+					{/* list all the checkout products */}
+
+					{/* for every single item, return the checkout products component */}
+
 					{basket.map((item) => (
 						<CheckoutProduct
 							item={item.id}
