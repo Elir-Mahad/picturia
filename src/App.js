@@ -24,7 +24,7 @@ import { useStateValue } from "./StateProvider.js";
 import { auth } from "firebase";
 
 function App() {
-	const [{}, dispatch] = useStateValue(); // THIS IS THE DATA LAYER FROM STATE PROVIDER
+	const [{ user }, dispatch] = useStateValue(); // THIS IS THE DATA LAYER FROM STATE PROVIDER
 	// THIS IS USUALLY SUMMONED WHEN WILL NEED TO THE GRAB THE BASKET ITEMS OR BASKET SOMEWHERE IN THE COMPONENT
 
 	// We need a piece of code which runs based on a given condition
@@ -47,10 +47,15 @@ function App() {
 			}
 		});
 
+		console.log("User is ...", user);
+
 		return () => {
 			// any clean up operations go in here...
 			unsubscribe();
 		};
+		// the below comment was added because the empty brackets makes react things that hook is missing dependencies.
+		// To see what happens, remove the disable line and run.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (

@@ -14,6 +14,7 @@ function CheckOut() {
 				<img
 					className="checkout_ad"
 					src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg "
+					alt=""
 				/>
 
 				{basket.length === 0 ? ( // if the basket is empty, has no items, then return the below div

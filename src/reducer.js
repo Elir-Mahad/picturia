@@ -45,7 +45,7 @@ const reducer = (state, action) => {
 	// We refer to the data layer as state; so anything inside the data layer is known as state.
 	// We manipulate the data layer with actions; such as: add item to basket, remove item from basket,etc
 
-	console.log(action);
+	// console.log(action);
 	// console log the items that are clicked on
 	// this is to check that the click function is working
 	// When the button is clicked, it should output the items object and properties in the browsers console
