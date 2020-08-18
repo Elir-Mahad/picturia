@@ -30,33 +30,36 @@ function App() {
 	// We need a piece of code which runs based on a given condition
 	// this is what we call a useEffect Hook ------> very powerful and important
 
-	useEffect(() => {
-		const unsubscribe = auth.onAuthStateChanged((authUser) => {
-			if (authUser) {
-				//  the user is logged in ...
-				dispatch({
-					type: "SET_USER",
-					user: authUser
-				});
-			} else {
-				// the user is logged out ..
-				dispatch({
-					type: "SET_USER",
-					user: null
-				});
-			}
-		});
+	useEffect(
+		() => {
+			const unsubscribe = auth.onAuthStateChanged((authUser) => {
+				if (authUser) {
+					//  the user is logged in ...
+					dispatch({
+						type: "SET_USER",
+						user: authUser
+					});
+				} else {
+					// the user is logged out ..
+					dispatch({
+						type: "SET_USER",
+						user: null
+					});
+				}
+			});
 
-		console.log("User is ...", user);
+			console.log("User is ...", user);
 
-		return () => {
-			// any clean up operations go in here...
-			unsubscribe();
-		};
+			return () => {
+				// any clean up operations go in here...
+				unsubscribe();
+			};
+		},
 		// the below comment was added because the empty brackets makes react things that hook is missing dependencies.
 		// To see what happens, remove the disable line and run.
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+		[]
+	);
 
 	return (
 		<Router>
