@@ -1,38 +1,41 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { Link, useHistory } from "react-router-dom";
-import { auth } from "firebase";
+// import { auth } from "firebase";
 
 function Login() {
-	const history = useHistory();
+	// const history = useHistory();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
-	const login = (event) => {
-		event.preventDefault(); // this stops page referesh
-		// do the login logic here
+	// const login = (event) => {
+	// 	//
+	// 	event.preventDefault(); // this stops page referesh
+	// 	// do the login logic here
 
-		auth
-			.signInWithEmailAndPassword(email, password)
-			.then((auth) => {
-				// loggined in, redirect to homepage ..
-				history.push("/");
-			})
-			.catch((e) => alert(e.message));
-	};
+	// 	auth()
+	// 		.signInWithEmailAndPassword(email, password)
+	// 		.then((auth) => {
+	// 			// loggined in, redirect to homepage ..
+	// 			history.push("/");
+	// 		})
+	// 		.catch((e) => alert(e.message));
+	// };
 
-	const register = (event) => {
-		event.preventDefault(); // this stops page referesh
-		// do the register logic here
+	// const register = (event) => {
+	// 	//
+	// 	event.preventDefault(); // this stops page referesh
+	// 	// do the register logic here
 
-		auth
-			.createUserWithEmailAndPassword(email, password)
-			.then((auth) => {
-				// created a user and loged in  and redirect to homepage..
-				history.push("/");
-			})
-			.catch((e) => alert(e.message));
-	};
+	// 	auth()
+	// 		.createUserWithEmailAndPassword(email, password)
+	// 		//
+	// 		.then((auth) => {
+	// 			// created a user and loged in  and redirect to homepage..
+	// 			history.push("/");
+	// 		})
+	// 		.catch((e) => alert(e.message));
+	// };
 
 	return (
 		<div className="login">
@@ -67,7 +70,12 @@ function Login() {
 						type="password"
 					/>
 
-					<button onClick={login} type="submit" className="login_signInButton">
+					<button
+						//
+						// onClick={login}
+						type="submit"
+						className="login_signInButton"
+					>
 						Sign in
 					</button>
 				</form>
@@ -77,7 +85,11 @@ function Login() {
 					Amazon.com account, be logged in to your account on the Product, and
 					have a valid payment method associated with your account.
 				</p>
-				<button onClick={register} className="login_registerButton">
+				<button
+					//
+					// onClick={register}
+					className="login_registerButton"
+				>
 					Create your Amazon button
 				</button>
 			</div>
