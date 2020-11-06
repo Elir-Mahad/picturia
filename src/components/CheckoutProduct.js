@@ -1,6 +1,6 @@
 import React from "react";
 import "./checkoutProduct.css";
-import { useStateValue } from "./StateProvider.js";
+import { useStateValue } from "../StateProvider.js";
 
 function CheckoutProduct({ id, title, image, price, rating }) {
 	const [{}, dispatch] = useStateValue(); // THIS IS THE DATA LAYER FROM STATE PROVIDER

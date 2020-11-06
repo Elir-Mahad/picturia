@@ -14,10 +14,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Observation: You can add the same components to different pages/routes
 // For example: below we added the Header component to the checkout page, and to the homepage, but its not on the login page.
 
-import Header from "./Header.js";
-import CheckOut from "./CheckOut.js";
-import Home from "./Home.js";
-import Login from "./Login.js";
+import Header from "./components/Header.js";
+import CheckOut from "./components/CheckOut.js";
+import Home from "./components/Home.js";
+import Login from "./components/Login.js";
 import "./App.css";
 
 import { useStateValue } from "./StateProvider.js";

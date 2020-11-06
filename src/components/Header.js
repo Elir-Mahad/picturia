@@ -15,7 +15,7 @@ import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search"; // this imports the search icon from material-ui as a component
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 
-import { useStateValue } from "./StateProvider.js";
+import { useStateValue } from "../StateProvider.js";
 
 function Header() {
 	// const [{ basket }, dispatch] = useStateValue();
