@@ -1,7 +1,7 @@
 export const Response = {
 	// We have turned the json response into an object inside our folder
 	// so that we may develop using this response.
-	data: [
+	"items": [
 		{
 			id: 1467513,
 			slug: "for-j-sun-sky-sea-sand-light-original-oil-painting-gift-palette",

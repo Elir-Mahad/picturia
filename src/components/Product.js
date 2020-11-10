@@ -40,15 +40,17 @@ function Product({ id, title, image, price, rating }) {
 
 	return (
 		<div className="product">
-			<div className="product_info">
-				<p> {data.id} </p>
-				<p> {data.title} </p>
-				<p className="product_price">
-					<small>$</small>
-					<strong>{price}</strong>
-				</p>
-				<div className="product_rating">
-					{/*For the ratings, we want the ratings to be displayed in stars. 
+			{data?.items.map((item) => (
+				// map through each item in the data, and render the below endpoints
+				<div className="product_info">
+					<p> {item.id} </p>
+					{/* <p> {data.title} </p> */}
+					<p className="product_price">
+						<small>$</small>
+						<strong>{price}</strong>
+					</p>
+					<div className="product_rating">
+						{/*For the ratings, we want the ratings to be displayed in stars. 
                                                     So if the rating 4 out 5, then we want to see 4 stars.
                                                     To do this we are going to use a built-in javascrip function.
                                                     Here is the pseudocode for the function:
@@ -57,13 +59,14 @@ function Product({ id, title, image, price, rating }) {
                                                     .map((_) => (  -> for each value output 
                                                     <p>⭐</p>      -> a ptag with the star element
                                                     */}
-					{Array(rating)
-						.fill()
-						.map((_) => (
-							<p>⭐</p>
-						))}
+						{Array(rating)
+							.fill()
+							.map((_) => (
+								<p>⭐</p>
+							))}
+					</div>
 				</div>
-			</div>
+			))}
 
 			<img src={image} alt="" />
 			<button onClick={addToBasket}>Add to basket</button>
