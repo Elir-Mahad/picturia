@@ -1,7 +1,8 @@
 export const Response = {
-	// We have turned the json response into an object inside our folder
+	// We have turned the json from the website
+	// into an object that's stored in the constant response (inside our folder)
 	// so that we may develop using this response.
-	"items": [
+	items: [
 		{
 			id: 1467513,
 			slug: "for-j-sun-sky-sea-sand-light-original-oil-painting-gift-palette",
