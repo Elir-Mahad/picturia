@@ -1,30 +1,26 @@
 .product {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	max-height: 400px;
-	min-width: 100px;
 	margin: 10px;
 	padding: 20px;
 	background-color: white;
+	border: 1px solid red;
 	z-index: 1;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .product_info {
-	height: 100px;
+	width: 40%;
 	margin-bottom: 15px;
+	border: 1px solid blue;
 }
 
 .product_price {
 	margin-top: 5px;
 }
 
-.product_rating {
-	display: flex;
-}
-
 .product img {
-	max-height: 200px;
+	max-height: 400px;
 	width: 100%;
 	object-fit: contain;
 	margin-bottom: 15px;

@@ -43,25 +43,20 @@ function Product({ id, title, image, price, rating }) {
 			{data?.items.map((item) => (
 				// map through each item in the data, and render the below endpoints
 				<div className="product_info">
-					{/*  */}
-					<p> Id #: {item.id} </p>
-					{/*  */}
-					<p> Name: {item.name} </p>
-					{/*  */}
-					<p> Artist name: {item.artist_name} </p>
-					{/*  */}
-					<img src={item.full_frontal_image_set[3].url} />
-					{/*  */}
+					<p className="prodcut_id"> Id #: {item.id} </p>
+					<p className="product_name"> Name: {item.name} </p>
+					<p className="product_artistName">Artist name: {item.artist_name}</p>
+					<img
+						className="product_image"
+						src={item.full_frontal_image_set[3].url}
+					/>
 					<p className="product_price">
 						<small>$</small>
 						<strong>{item.prices.CAD}</strong>
 					</p>
-					{/*  */}
+					<button onClick={addToBasket}>Add to basket</button>
 				</div>
 			))}
-
-			<img src={image} alt="" />
-			<button onClick={addToBasket}>Add to basket</button>
 		</div>
 	);
 }
