@@ -2,7 +2,7 @@
 	"name": "amazon",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://elir-mahad.github.io/amazon/",
+	"homepage": "https://elir-mahad.github.io/picturia/",
 	"dependencies": {
 		"@material-ui/core": "^4.11.0",
 		"@material-ui/icons": "^4.9.1",

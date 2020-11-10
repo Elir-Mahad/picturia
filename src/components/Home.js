@@ -1,12 +1,19 @@
 import React from "react";
 import Product from "./Product.js";
 import "./Home.css";
+// import Response from "../response.js";
 
 // The home page has:
 // 1. The banner
 // 2. All Products (id, title, price, rating, image)
 
 function Home() {
+	//
+	// const data = Response;
+
+	// console.log(data);
+	//show all the data in the console
+	//
 	return (
 		<div className="home">
 			{/* This is the banner */}
@@ -17,9 +24,10 @@ function Home() {
 				alt=" "
 			/>
 
+			<Product />
 			{/* This is the product */}
 
-			<div className="home_row">
+			{/* <div className="home_row">
 				<Product
 					id="1234"
 					title="The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create"
@@ -34,9 +42,9 @@ function Home() {
 					rating={4}
 					image="https://images-na.ssl-images-amazon.com/images/I/81QpkIctqPL._AC_SX679_.jpg"
 				/>
-			</div>
+			</div> */}
 
-			<div className="home_row">
+			{/* <div className="home_row">
 				<Product
 					id="1236"
 					title="Seagate (STGD2000100) Game Drive for PS4 Systems 2TB External Hard Drive Portable HDD – USB 3.0, Officially Licensed Product"
@@ -67,7 +75,7 @@ function Home() {
 					rating={1}
 					image="https://images-na.ssl-images-amazon.com/images/I/710ERU80dXL._AC_SX425_.jpg"
 				/>
-			</div>
+			</div> */}
 		</div>
 	);
 }

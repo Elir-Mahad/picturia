@@ -1,6 +1,8 @@
 import React from "react";
 import "./Product.css";
 
+import Response from "../response.js";
+
 import { useStateValue } from "../StateProvider.js";
 
 function Product({ id, title, image, price, rating }) {
@@ -15,14 +17,21 @@ function Product({ id, title, image, price, rating }) {
 		dispatch({
 			type: "ADD_TO_BASKET", // this is the action.type from the reducer.js
 			item: {
-				id: id, // fetch the id of the item that's being added
-				title: title, // fetch the title of the item that's being added
-				image: image, // fetch the image of the item that's being added
-				price: price, // fetch the price of the item that's being added
-				rating: rating // fetch the rating of the item that's being added
+				id: id // fetch the id of the item that's being added
+				// title: title, // fetch the title of the item that's being added
+				// image: image, // fetch the image of the item that's being added
+				// price: price, // fetch the price of the item that's being added
+				// rating: rating // fetch the rating of the item that's being added
 			}
 		});
 	};
+
+	//
+	const data = Response;
+
+	console.log(data);
+
+	//
 
 	// On click, the add to basket function is going to run.
 	// It is going to dispatch an action (ex: ADD_TO_BASKET)
@@ -32,7 +41,8 @@ function Product({ id, title, image, price, rating }) {
 	return (
 		<div className="product">
 			<div className="product_info">
-				<p> {title} </p>
+				<p> {data.id} </p>
+				<p> {data.title} </p>
 				<p className="product_price">
 					<small>$</small>
 					<strong>{price}</strong>
