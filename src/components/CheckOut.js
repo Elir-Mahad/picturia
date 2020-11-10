@@ -38,10 +38,10 @@ function CheckOut() {
 						{basket.map((item) => (
 							<CheckoutProduct
 								id={item.id}
-								title={item.title}
-								image={item.image}
-								price={item.price}
-								rating={item.rating}
+								title={item.name}
+								artistname={item.artist_name}
+								// image={item.full_frontal_image_set[3].url}
+								// price={item.prices.CAD}
 							/>
 						))}
 					</div>
